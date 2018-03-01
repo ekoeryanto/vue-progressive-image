@@ -8,7 +8,7 @@
       <transition
         :enter-class="$style.enter"
         :enter-active-class="$style.before">
-        <div v-if="shouldImageRender" :class="$style.image" :style="imageStyle"></div>
+        <div v-if="shouldImageRender" :class="[$style.image, imageClass]" :style="imageStyle"></div>
       </transition>
       <div :class="$style.slot">
         <slot />
@@ -29,6 +29,10 @@
     name: 'progressive-background',
 
     props: {
+      imageClass: {
+        type: String,
+        required: false
+      },
       noRatio: {
         type: Boolean,
         required: false
